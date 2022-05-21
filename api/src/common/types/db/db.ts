@@ -1,1 +1,1 @@
-export { DocumentModel } from './document-model.type';
+export { Db } from './db.type';

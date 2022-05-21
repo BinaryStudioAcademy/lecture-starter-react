@@ -8,6 +8,7 @@ type TripDto = {
   duration: number;
   price: number;
   image: string;
+  createdAt: Date;
 };
 
 export { TripDto };

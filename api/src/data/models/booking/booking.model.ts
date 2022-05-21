@@ -1,26 +1,70 @@
-import { BookingExtract } from '../booking-extract/booking-extract.model';
+import {
+  BookingDto,
+  CreateBookingDto,
+  TripExtractDto,
+} from '~/common/types/types';
+import { getRandomId } from '~/helpers/helpers';
 
-type Constructor = BookingExtract & {
+type Constructor = {
+  id: string;
+  userId: string;
+  tripId: string;
+  guests: number;
+  date: Date;
+  trip: TripExtractDto;
   totalPrice: number;
-  trip: {
-    title: string;
-    duration: number;
-    price: number;
-  };
+  createdAt: Date;
 };
 
-class Booking extends BookingExtract {
+class Booking {
+  id: string;
+  userId: string;
+  tripId: string;
+  guests: number;
+  date: Date;
+  trip: TripExtractDto;
   totalPrice: number;
-  trip: {
-    title: string;
-    duration: number;
-    price: number;
-  };
+  createdAt: Date;
 
-  constructor({ totalPrice, trip, ...payload }: Constructor) {
-    super(payload);
-    this.totalPrice = totalPrice;
+  constructor({
+    id,
+    userId,
+    tripId,
+    guests,
+    date,
+    totalPrice,
+    trip,
+    createdAt,
+  }: Constructor) {
+    this.id = id;
+    this.userId = userId;
+    this.tripId = tripId;
+    this.guests = guests;
+    this.date = date;
     this.trip = trip;
+    this.totalPrice = totalPrice;
+    this.createdAt = createdAt;
+  }
+
+  static create({
+    tripId,
+    userId,
+    guests,
+    date,
+    trip,
+  }: CreateBookingDto & {
+    trip: TripExtractDto;
+  }): BookingDto {
+    return new Booking({
+      id: getRandomId(),
+      userId,
+      tripId,
+      guests,
+      date,
+      trip,
+      totalPrice: trip.price * guests,
+      createdAt: new Date(),
+    });
   }
 }
 

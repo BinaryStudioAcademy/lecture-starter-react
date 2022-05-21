@@ -30,8 +30,10 @@ class Auth {
   }
 
   async signIn(id: string): Promise<SignInUserResponseDto> {
+    const user = await this.#userService.getById(id);
+
     return {
-      user: await this.#userService.getById(id),
+      user,
       token: this.#tokenService.create<TokenPayload>({ id }),
     };
   }
@@ -40,10 +42,12 @@ class Auth {
     try {
       const { id } = this.#tokenService.verify<TokenPayload>(token);
 
-      return await this.#userService.getById(id);
+      const user = await this.#userService.getById(id);
+
+      return user;
     } catch {
       throw new InvalidCredentialsError({
-        message: ExceptionMessage.INVALID_TOKEN,
+        message: ExceptionMessage.INVALID_CREDENTIALS,
       });
     }
   }

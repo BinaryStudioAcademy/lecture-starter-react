@@ -1,5 +1,5 @@
 import { Booking as BookingRepository } from '~/data/repositories/repositories';
-import { BookingExtract as BookingExtractModel } from '~/data/models/models';
+import { Booking as BookingModel } from '~/data/models/models';
 import { CreateBookingDto, BookingDto } from '~/common/types/types';
 import { Trip as TripService, User as UserService } from '../services';
 
@@ -28,9 +28,16 @@ class Booking {
     const { userId, tripId } = payload;
 
     await this.#userService.getById(userId);
-    await this.#tripService.getById(tripId);
+    const { title, duration, price } = await this.#tripService.getById(tripId);
 
-    const booking = BookingExtractModel.create(payload);
+    const booking = BookingModel.create({
+      ...payload,
+      trip: {
+        title,
+        duration,
+        price,
+      },
+    });
 
     return this.#bookingRepository.create(booking);
   }

@@ -1,5 +1,4 @@
 enum ExceptionMessage {
-  INVALID_TOKEN = 'Token is invalid',
   INVALID_TASK = 'Task is invalid',
   UNAUTHORIZED_USER = 'Unauthorized user',
   INVALID_CREDENTIALS = 'Credentials are incorrect',

@@ -1,12 +1,14 @@
-import { BookingExtractDto } from './booking-extract-dto.type';
+import { TripExtractDto } from '../types';
 
-type BookingDto = BookingExtractDto & {
+type BookingDto = {
+  id: string;
+  tripId: string;
+  userId: string;
+  guests: number;
+  date: Date;
+  createdAt: Date;
   totalPrice: number;
-  trip: {
-    title: string;
-    duration: number;
-    price: number;
-  };
+  trip: TripExtractDto;
 };
 
 export { BookingDto };

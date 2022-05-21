@@ -20,13 +20,18 @@ class User {
   }
 
   getById(id: string): Promise<UserDto> {
-    return this.#userRepository.getById(id).then(UserModel.toResponse);
+    const user = this.#userRepository.getById(id);
+
+    return user.then(UserModel.toResponse);
   }
 
   async create(payload: CreateUserDto): Promise<UserDto> {
     const { password } = payload;
     const passwordSalt = await this.#encryptionService.createSalt();
-    const passwordHash = await this.#encryptionService.hash(password, passwordSalt);
+    const passwordHash = await this.#encryptionService.hash(
+      password,
+      passwordSalt,
+    );
 
     const user = UserModel.create({
       ...payload,
@@ -36,7 +41,10 @@ class User {
     return this.#userRepository.create(user).then(UserModel.toResponse);
   }
 
-  async verifyLoginCredentials({ email, password }: SignInUserDto): Promise<UserDto> {
+  async verifyLoginCredentials({
+    email,
+    password,
+  }: SignInUserDto): Promise<UserDto> {
     const user = await this.#userRepository.findOne({ email });
 
     if (!user) {
@@ -45,7 +53,10 @@ class User {
       });
     }
 
-    const isPasswordEqual = await this.#encryptionService.compare(password, user.password);
+    const isPasswordEqual = await this.#encryptionService.compare(
+      password,
+      user.password,
+    );
 
     if (!isPasswordEqual) {
       throw new InvalidCredentialsError({

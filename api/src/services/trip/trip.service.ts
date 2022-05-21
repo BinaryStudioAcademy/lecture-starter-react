@@ -21,7 +21,7 @@ class Trip {
     return this.#tripRepository.getById(id);
   }
 
-  async create(payload: CreateTripDto): Promise<TripDto> {
+  create(payload: CreateTripDto): Promise<TripDto> {
     const trip = TripModel.create(payload);
 
     return this.#tripRepository.create(trip);

@@ -1,4 +1,3 @@
-export { DocumentModel } from './db/db';
 export { ValidationSchema } from './validation/validation';
 export {
   UserDto,
@@ -7,6 +6,7 @@ export {
   SignInUserResponseDto,
   SignUpUserResponseDto,
 } from './user/user';
-export { TripDto, CreateTripDto } from './trip/trip';
-export { BookingDto, BookingExtractDto, CreateBookingDto } from './booking/booking';
+export { TripDto, CreateTripDto, TripExtractDto } from './trip/trip';
+export { BookingDto, CreateBookingDto } from './booking/booking';
 export { TokenPayload } from './token/token';
+export { Db } from './db/db';
