@@ -1,0 +1,286 @@
+openapi: 3.0.0
+info:
+  title: Travel App API
+servers:
+  - url: /api/v1
+paths:
+  # Auth
+
+  /auth/authenticated-user:
+    get:
+      summary: Get authenticated user
+      tags:
+        - auth
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+  /auth/sign-up:
+    post:
+      summary: Sign Up
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpUserDto'
+      responses:
+        '201':
+          description: A user object and token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/UserDto'
+  /auth/sign-in:
+    post:
+      summary: Sign In
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInUserDto'
+      responses:
+        '200':
+          description: A user object and token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/UserDto'
+
+  # Trips
+
+  /trips:
+    tags: trips
+    get:
+      summary: Get all trips
+      tags:
+        - trips
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A trips array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TripDto'
+  /trips/{tripId}:
+    get:
+      summary: Get a trip by id
+      tags:
+        - trips
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tripId
+          in: path
+          required: true
+          description: Trip id
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: A trip
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripDto'
+
+  # Bookings
+
+  /bookings:
+    get:
+      summary: Get authenticated user bookings
+      tags:
+        - bookings
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A bookings array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookingDto'
+    post:
+      summary: Book a trip
+      tags:
+        - bookings
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBookingDto'
+      responses:
+        '201':
+          description: A booking object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingDto'
+  /bookings/{bookingId}:
+    delete:
+      summary: Cancel a booking
+      security:
+        - bearerAuth: []
+      tags:
+        - bookings
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          description: Trip id
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '204':
+          description: Booking was canceled
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        fullName:
+          type: string
+          example: Arthur Dent
+        email:
+          type: string
+          example: arthur.dent@mail.com
+        createdAt:
+          type: string
+          example: 2022-05-21T14:37:00.049Z
+    SignUpUserDto:
+      type: object
+      properties:
+        fullName:
+          type: string
+          example: Arthur Dent
+        email:
+          type: string
+          example: arthur.dent@mail.com
+        password:
+          type: string
+          example: pa$Sword
+    SignInUserDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: arthur.dent@mail.com
+        password:
+          type: string
+          example: pa$Sword
+    TripDto:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        title:
+          type: string
+          example: Iceland
+        description:
+          type: string
+          example: Description
+        level:
+          type: string
+          example: easy
+        duration:
+          type: integer
+          example: 10
+        price:
+          type: integer
+          example: 7000
+        image:
+          type: string
+        createdAt:
+          type: string
+          example: 2022-05-21T14:37:00.049Z
+    BookingDto:
+      type: object
+      properties:
+        tripId:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        userId:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        guests:
+          type: integer
+          example: 2
+        totalPrice:
+          type: integer
+          example: 14000
+        date:
+          type: string
+          example: 2022-05-21T14:37:00.049Z
+        createdAt:
+          type: string
+          example: 2022-05-21T14:37:00.049Z
+        trip:
+          type: object
+          properties:
+            title:
+              type: string
+              example: Iceland
+            duration:
+              type: integer
+              example: 10
+            price:
+              type: integer
+              example: 7000
+    CreateBookingDto:
+      type: object
+      properties:
+        tripId:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        userId:
+          type: string
+          example: 6288f90c2683168b8e95c372
+        guests:
+          type: integer
+          example: 2
+        date:
+          type: string
+          example: 2022-05-21T14:37:00.049Z

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Assistan+Display:wght@400;600&family=Playfair+Display:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Travel app</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <a href="./index.html" class="header__logo">Travel App</a>
+        <nav class="header__nav">
+          <ul class="nav-header__list">
+            <li class="nav-header__item" title="Bookings">
+              <a href="./bookings.html" class="nav-header__inner">
+                <span class="visually-hidden">Bookings</span>
+                <img src="./assets/images/briefcase.svg" alt=" icon" />
+              </a>
+            </li>
+            <li class="nav-header__item" title="Profile">
+              <div class="nav-header__inner profile-nav__wrapper" tabindex="0">
+                <span class="visually-hidden">Profile</span>
+                <img src="./assets/images/user.svg" alt="profile icon" />
+                <ul class="profile-nav__list">
+                  <li class="profile-nav__item">John Doe</li>
+                  <li class="profile-nav__item">
+                    <button class="profile-nav__button button">Sign Out</button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="visually-hidden">Travel App</h1>
+      <section class="trips-filter">
+        <h2 class="visually-hidden">Trips filter</h2>
+        <form class="trips-filter__form" autocomplete="off">
+          <label class="trips-filter__search input">
+            <span class="visually-hidden">Search by name</span>
+            <input name="search" type="search" placeholder="search by title" />
+          </label>
+          <label class="select">
+            <span class="visually-hidden">Search by duration</span>
+            <select name="price">
+              <option value="">duration</option>
+              <option value="0_x_15">&lt; 15 days</option>
+              <option value="15_x_30">&lt; 30 days</option>
+              <option value="30_x">&ge; 30 days</option>
+            </select>
+          </label>
+          <label class="select">
+            <span class="visually-hidden">Search by level</span>
+            <select name="level">
+              <option value="">level</option>
+              <option value="easy">easy</option>
+              <option value="moderate">moderate</option>
+              <option value="difficult">difficult</option>
+            </select>
+          </label>
+        </form>
+      </section>
+      <section class="trips">
+        <h2 class="visually-hidden">Trips List</h2>
+        <ul class="trip-list">
+          <li class="trip-card">
+            <img src="./assets/images/iceland.jpg" alt="trip image" />
+            <div class="trip-card__content">
+              <div class="trip-info">
+                <h3 class="trip-info__title">Island</h3>
+                <div class="trip-info__content">
+                  <span class="trip-info__duration"><strong>15</strong> days</span>
+                  <span class="trip-info__level">easy</span>
+                </div>
+              </div>
+              <div class="trip-price">
+                <span>Price</span>
+                <strong class="trip-price__value">7000 $</strong>
+              </div>
+            </div>
+            <a href="./trip.html" class="button">Discover a trip</a>
+          </li>
+          <li class="trip-card">
+            <img src="./assets/images/iceland.jpg" alt="trip image" />
+            <div class="trip-card__content">
+              <div class="trip-info">
+                <h3 class="trip-info__title">Island</h3>
+                <div class="trip-info__content">
+                  <span class="trip-info__duration"><strong>15</strong> days</span>
+                  <span class="trip-info__level">easy</span>
+                </div>
+              </div>
+              <div class="trip-price">
+                <span>Price</span>
+                <strong class="trip-price__value">7000 $</strong>
+              </div>
+            </div>
+            <a href="./trip.html" class="button">Discover a trip</a>
+          </li>
+          <li class="trip-card">
+            <img src="./assets/images/iceland.jpg" alt="trip image" />
+            <div class="trip-card__content">
+              <div class="trip-info">
+                <h3 class="trip-info__title">Island</h3>
+                <div class="trip-info__content">
+                  <span class="trip-info__duration"><strong>15</strong> days</span>
+                  <span class="trip-info__level">easy</span>
+                </div>
+              </div>
+              <div class="trip-price">
+                <span>Price</span>
+                <strong class="trip-price__value">7000 $</strong>
+              </div>
+            </div>
+            <a href="./trip.html" class="button">Discover a trip</a>
+          </li>
+          <li class="trip-card">
+            <img src="./assets/images/iceland.jpg" alt="trip image" />
+            <div class="trip-card__content">
+              <div class="trip-info">
+                <h3 class="trip-info__title">Island</h3>
+                <div class="trip-info__content">
+                  <span class="trip-info__duration"><strong>15</strong> days</span>
+                  <span class="trip-info__level">easy</span>
+                </div>
+              </div>
+              <div class="trip-price">
+                <span>Price</span>
+                <strong class="trip-price__value">7000 $</strong>
+              </div>
+            </div>
+            <a href="./trip.html" class="button">Discover a trip</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <span class="footer__text">
+        from <a class="footer__link" href="https://binary-studio.com">binary studio</a> with
+        <img class="footer__icon" src="./assets/images/heart.svg" alt="heart icon" />
+      </span>
+    </footer>
+  </body>
+</html>
