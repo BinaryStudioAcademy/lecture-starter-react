@@ -1,3 +1,4 @@
+import path from 'path';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
@@ -5,8 +6,7 @@ import { ENV } from '~/common/enums/enums';
 import { initApi } from '~/api/api';
 import { initRepositories } from '~/data/repositories/repositories';
 import { initServices } from '~/services/services';
-import { connectToDatabase } from '~/db';
-import path from 'path';
+import { db } from '~/db';
 
 const app = Fastify({
   logger: {
@@ -28,19 +28,17 @@ app.register(swagger, {
   },
 });
 
-connectToDatabase().then((db) => {
-  const repositories = initRepositories(db);
-  const { auth, user, trip, booking } = initServices(repositories);
+const repositories = initRepositories(db);
+const { auth, user, trip, booking } = initServices(repositories);
 
-  app.register(initApi, {
-    prefix: ENV.API.V1_PREFIX,
-    services: {
-      auth,
-      user,
-      trip,
-      booking,
-    },
-  });
-
-  app.listen(ENV.APP.SERVER_PORT, ENV.APP.SERVER_HOST);
+app.register(initApi, {
+  prefix: ENV.API.V1_PREFIX,
+  services: {
+    auth,
+    user,
+    trip,
+    booking,
+  },
 });
+
+app.listen(ENV.APP.SERVER_PORT, ENV.APP.SERVER_HOST);

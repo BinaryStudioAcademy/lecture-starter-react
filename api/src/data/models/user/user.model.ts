@@ -1,4 +1,5 @@
-import { CreateUserDto, DocumentModel, UserDto } from '~/common/types/types';
+import { CreateUserDto, UserDto } from '~/common/types/types';
+import { getRandomId } from '~/helpers/helpers';
 
 type Constructor = {
   id: string;
@@ -23,16 +24,14 @@ class User {
     this.createdAt = createdAt;
   }
 
-  static create({ fullName, email, password }: CreateUserDto): DocumentModel<User> {
-    const { id, ...user } = new User({
-      id: '',
+  static create({ fullName, email, password }: CreateUserDto): User {
+    return new User({
+      id: getRandomId(),
       fullName,
       email,
       password,
       createdAt: new Date(),
     });
-
-    return user;
   }
 
   static toResponse(user: User): UserDto {

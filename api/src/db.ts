@@ -1,12 +1,10 @@
-import { Db, MongoClient } from 'mongodb';
-import { ENV } from '~/common/enums/enums';
+import { CollectionName } from '~/common/enums/enums';
+import { Db } from '~/common/types/types';
 
-const connectToDatabase = async (): Promise<Db> => {
-  const client = new MongoClient(ENV.DB.CONNECTION_STRING);
-
-  await client.connect();
-
-  return client.db();
+const db: Db = {
+  [CollectionName.USERS]: [],
+  [CollectionName.TRIPS]: [],
+  [CollectionName.BOOKINGS]: [],
 };
 
-export { connectToDatabase };
+export { db };

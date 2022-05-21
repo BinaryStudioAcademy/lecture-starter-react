@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 
 config();
 
-const { PORT, HOST, SECRET_KEY, DB_CONNECTION_STRING } = process.env;
+const { PORT, HOST, SECRET_KEY } = process.env;
 
 const ENV = {
   APP: {
@@ -16,9 +16,6 @@ const ENV = {
   JWT: {
     SECRET: SECRET_KEY as string,
     EXPIRES_IN: '24h',
-  },
-  DB: {
-    CONNECTION_STRING: DB_CONNECTION_STRING as string,
   },
 } as const;
 

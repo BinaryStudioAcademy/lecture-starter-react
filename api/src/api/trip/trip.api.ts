@@ -15,7 +15,7 @@ const initTripApi: FastifyPluginAsync<Options> = async (fastify, opts) => {
     method: HttpMethod.GET,
     url: TripsApiPath.ROOT,
     handler: async (_req, rep) => {
-      const trips = await tripService.getAll();
+      const trips = tripService.getAll();
 
       return rep.status(HttpCode.OK).send(trips);
     },
@@ -27,7 +27,7 @@ const initTripApi: FastifyPluginAsync<Options> = async (fastify, opts) => {
     handler: async (req: FastifyRequest<{ Params: { id: string } }>, rep) => {
       const { id } = req.params;
 
-      const trip = await tripService.getById(id);
+      const trip = tripService.getById(id);
 
       return rep.status(HttpCode.OK).send(trip);
     },

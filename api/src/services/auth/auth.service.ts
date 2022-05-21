@@ -29,18 +29,18 @@ class Auth {
     return this.signIn(id);
   }
 
-  async signIn(id: string): Promise<SignInUserResponseDto> {
+  signIn(id: string): SignInUserResponseDto {
     return {
-      user: await this.#userService.getById(id),
+      user: this.#userService.getById(id),
       token: this.#tokenService.create<TokenPayload>({ id }),
     };
   }
 
-  async getAuthorizedUser(token: string): Promise<UserDto> {
+  getAuthorizedUser(token: string): UserDto {
     try {
       const { id } = this.#tokenService.verify<TokenPayload>(token);
 
-      return await this.#userService.getById(id);
+      return this.#userService.getById(id);
     } catch {
       throw new InvalidCredentialsError({
         message: ExceptionMessage.INVALID_TOKEN,

@@ -1,5 +1,5 @@
 import { Booking as BookingRepository } from '~/data/repositories/repositories';
-import { BookingExtract as BookingExtractModel } from '~/data/models/models';
+import { Booking as BookingModel } from '~/data/models/models';
 import { CreateBookingDto, BookingDto } from '~/common/types/types';
 import { Trip as TripService, User as UserService } from '../services';
 
@@ -20,22 +20,22 @@ class Booking {
     this.#userService = userService;
   }
 
-  getByUser(userId: string): Promise<BookingDto[]> {
+  getByUser(userId: string): BookingDto[] {
     return this.#bookingRepository.getByUser(userId);
   }
 
   async create(payload: CreateBookingDto): Promise<BookingDto> {
     const { userId, tripId } = payload;
 
-    await this.#userService.getById(userId);
-    await this.#tripService.getById(tripId);
+    this.#userService.getById(userId);
+    const trip = this.#tripService.getById(tripId);
 
-    const booking = BookingExtractModel.create(payload);
+    const booking = BookingModel.create({ ...payload, trip });
 
     return this.#bookingRepository.create(booking);
   }
 
-  delete(id: string): Promise<void> {
+  delete(id: string): void {
     return this.#bookingRepository.delete(id);
   }
 }

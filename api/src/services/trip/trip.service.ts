@@ -13,15 +13,15 @@ class Trip {
     this.#tripRepository = tripRepository;
   }
 
-  getAll(): Promise<TripDto[]> {
+  getAll(): TripDto[] {
     return this.#tripRepository.getAll();
   }
 
-  getById(id: string): Promise<TripDto> {
+  getById(id: string): TripDto {
     return this.#tripRepository.getById(id);
   }
 
-  async create(payload: CreateTripDto): Promise<TripDto> {
+  create(payload: CreateTripDto): TripDto {
     const trip = TripModel.create(payload);
 
     return this.#tripRepository.create(trip);

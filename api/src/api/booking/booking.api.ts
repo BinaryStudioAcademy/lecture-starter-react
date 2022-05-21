@@ -18,7 +18,7 @@ const initBookingApi: FastifyPluginAsync<Options> = async (fastify, opts) => {
     url: BookingsApiPath.ROOT,
     async handler(req, rep) {
       const { user } = req;
-      const bookings = await bookingService.getByUser(user.id);
+      const bookings = bookingService.getByUser(user.id);
 
       return rep.status(HttpCode.OK).send(bookings);
     },
@@ -31,7 +31,7 @@ const initBookingApi: FastifyPluginAsync<Options> = async (fastify, opts) => {
       body: createBookingValidationSchema,
     },
     async handler(req: FastifyRequest<{ Body: CreateBookingDto }>, rep) {
-      const booking = await bookingService.create(req.body);
+      const booking = bookingService.create(req.body);
 
       return rep.status(HttpCode.CREATED).send(booking);
     },

@@ -1,5 +1,6 @@
 import { TripLevel } from '~/common/enums/enums';
-import { CreateTripDto, DocumentModel } from '~/common/types/types';
+import { CreateTripDto } from '~/common/types/types';
+import { getRandomId } from '~/helpers/helpers';
 
 type Constructor = {
   id: string;
@@ -49,9 +50,9 @@ class Trip {
     duration,
     price,
     image,
-  }: CreateTripDto): DocumentModel<Trip> {
-    const { id, ...user } = new Trip({
-      id: '',
+  }: CreateTripDto): Trip {
+    return new Trip({
+      id: getRandomId(),
       title,
       description,
       level,
@@ -60,8 +61,6 @@ class Trip {
       image,
       createdAt: new Date(),
     });
-
-    return user;
   }
 }
 
