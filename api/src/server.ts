@@ -4,9 +4,8 @@ import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import { ENV } from '~/common/enums/enums';
 import { initApi } from '~/api/api';
-import { initRepositories } from '~/data/repositories/repositories';
 import { initServices } from '~/services/services';
-import { db } from '~/db';
+import { initDb } from '~/db';
 
 const app = Fastify({
   logger: {
@@ -28,7 +27,7 @@ app.register(swagger, {
   },
 });
 
-const repositories = initRepositories(db);
+const repositories = initDb();
 const { auth, user, trip, booking } = initServices(repositories);
 
 app.register(initApi, {
