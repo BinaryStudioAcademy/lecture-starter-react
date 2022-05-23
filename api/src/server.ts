@@ -5,7 +5,7 @@ import swagger from '@fastify/swagger';
 import { ENV } from '~/common/enums/enums';
 import { initApi } from '~/api/api';
 import { initServices } from '~/services/services';
-import { initDb } from '~/db';
+import { initDatabase } from '~/db';
 
 const app = Fastify({
   logger: {
@@ -27,7 +27,7 @@ app.register(swagger, {
   },
 });
 
-const repositories = initDb();
+const repositories = initDatabase();
 const { auth, user, trip, booking } = initServices(repositories);
 
 app.register(initApi, {

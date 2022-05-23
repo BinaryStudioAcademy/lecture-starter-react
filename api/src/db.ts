@@ -4,7 +4,7 @@ import { Trip as TripModel } from './data/models/models';
 import { initRepositories } from './data/repositories/repositories';
 import { trips as tripsSeed } from './data/seed-data/trips-seed';
 
-const initDb = (): ReturnType<typeof initRepositories> => {
+const initDatabase = (): ReturnType<typeof initRepositories> => {
   const db: Db = {
     [CollectionName.USERS]: [],
     [CollectionName.BOOKINGS]: [],
@@ -19,4 +19,4 @@ const initDb = (): ReturnType<typeof initRepositories> => {
   return repositories;
 };
 
-export { initDb };
+export { initDatabase };
