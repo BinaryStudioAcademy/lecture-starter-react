@@ -317,13 +317,13 @@ select {
 
 /* profile-nav */
 
-.profile-nav__wrapper {
+.profile-nav {
   position: relative;
   cursor: pointer;
 }
 
-.profile-nav__wrapper:hover .profile-nav__list,
-.profile-nav__wrapper:focus .profile-nav__list,
+.profile-nav:hover .profile-nav__list,
+.profile-nav:focus .profile-nav__list,
 .profile-nav__list:focus-within .profile-nav__list {
   display: block;
 }
@@ -351,7 +351,7 @@ select {
   padding-top: 10px;
 }
 
-.profile-nav__button {
+.profile-nav__sign-out {
   min-height: auto;
 }
 

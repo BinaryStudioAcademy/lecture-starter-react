@@ -1,3 +1,0 @@
-enum UsersApiPath {}
-
-export { UsersApiPath };

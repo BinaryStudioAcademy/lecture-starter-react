@@ -24,13 +24,13 @@
               </a>
             </li>
             <li class="nav-header__item" title="Profile">
-              <div class="nav-header__inner profile-nav__wrapper" tabindex="0">
+              <div class="nav-header__inner profile-nav" tabindex="0">
                 <span class="visually-hidden">Profile</span>
                 <img src="./assets/images/user.svg" alt="profile icon" />
                 <ul class="profile-nav__list">
-                  <li class="profile-nav__item">John Doe</li>
+                  <li class="profile-nav__item profile-nav__username">John Doe</li>
                   <li class="profile-nav__item">
-                    <button class="profile-nav__button button">Sign Out</button>
+                    <button class="profile-nav__sign-out button">Sign Out</button>
                   </li>
                 </ul>
               </div>
@@ -50,11 +50,11 @@
           </label>
           <label class="select">
             <span class="visually-hidden">Search by duration</span>
-            <select name="price">
+            <select name="duration">
               <option value="">duration</option>
-              <option value="0_x_15">&lt; 15 days</option>
-              <option value="15_x_30">&lt; 30 days</option>
-              <option value="30_x">&ge; 30 days</option>
+              <option value="0_x_5">&lt; 5 days</option>
+              <option value="5_x_10">&lt; 10 days</option>
+              <option value="10_x">&ge; 10 days</option>
             </select>
           </label>
           <label class="select">

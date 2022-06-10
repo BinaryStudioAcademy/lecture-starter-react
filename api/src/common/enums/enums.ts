@@ -1,7 +1,6 @@
 export {
   ApiPath,
   AuthApiPath,
-  UsersApiPath,
   TripsApiPath,
   BookingsApiPath,
   ControllerHook,
