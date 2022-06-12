@@ -36,7 +36,7 @@ describe('User', async () => {
 
   it('should see loader while user data loading', async () => {
     await browser.refresh();
-    await loaderComponent.Element_Container.waitForExist();
+    await loaderComponent.Element_Container.waitForDisplayed();
   });
 
   it('should stay on the same page after reload', async () => {

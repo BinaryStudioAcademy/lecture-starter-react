@@ -4,6 +4,7 @@ import {
   Header as HeaderComponent,
   TripCard as TripCardComponent,
 } from '../page-components/page-components';
+import { waitForURL } from '../helpers/helpers';
 
 const mainPage = new MainPage();
 const headerComponent = new HeaderComponent();
@@ -29,7 +30,7 @@ class Main {
   }
 
   async openProfileNav(): Promise<void> {
-    await headerComponent.ProfileMenu_Container.waitForExist();
+    await headerComponent.ProfileNavigation_Container.waitForExist();
     await headerComponent.ProfileNavigation_Container.moveTo();
   }
 
@@ -37,6 +38,7 @@ class Main {
     const tripCardComponent = new TripCardComponent();
     await tripCardComponent.DiscoverTrip_Link.waitForClickable();
     await tripCardComponent.DiscoverTrip_Link.click();
+    await waitForURL(AppRoute.TRIP_$ID);
   }
 
   async signOut(): Promise<void> {
