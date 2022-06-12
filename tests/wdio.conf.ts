@@ -1,4 +1,9 @@
 import type { Options } from '@wdio/types';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const { APP_URL } = process.env;
 
 const config: Options.Testrunner = {
   autoCompileOpts: {
@@ -23,7 +28,7 @@ const config: Options.Testrunner = {
   ],
   logLevel: 'info',
   bail: 0,
-  baseUrl: 'http://localhost:3000',
+  baseUrl: APP_URL,
   waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
