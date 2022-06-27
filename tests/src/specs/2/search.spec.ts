@@ -1,4 +1,4 @@
-import { generateEmail } from '../../helpers/helpers';
+import { generateEmail, wakeUpApi } from '../../helpers/helpers';
 import { authData, mainData } from '../../data/data';
 import {
   Main as MainActions,
@@ -24,6 +24,8 @@ describe('User', async () => {
     });
 
     const { fullName, password } = authData;
+
+    await wakeUpApi();
     await authActions.openSignUpPage();
     await authActions.signUp({
       fullName,
@@ -32,6 +34,11 @@ describe('User', async () => {
     });
     await browser.pause(2000);
     await mainActions.openPage();
+  });
+
+  beforeEach(async () => {
+    await browser.refresh();
+    await browser.pause(2000);
   });
 
   it('can filter cards by search', async () => {

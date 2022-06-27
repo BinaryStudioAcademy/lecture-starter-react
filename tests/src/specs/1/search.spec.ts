@@ -10,6 +10,10 @@ describe('User', async () => {
     await mainActions.openPage();
   });
 
+  beforeEach(async () => {
+    await browser.refresh();
+  });
+
   it('can filter cards by search', async () => {
     const { search } = mainData;
 

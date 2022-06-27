@@ -2,7 +2,12 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "moduleResolution": "node",
-    "types": ["node", "webdriverio/async", "@wdio/mocha-framework", "expect-webdriverio"],
+    "types": [
+      "node",
+      "webdriverio/async",
+      "@wdio/mocha-framework",
+      "expect-webdriverio"
+    ],
     "target": "es2017",
     "allowJs": true,
     "esModuleInterop": true,

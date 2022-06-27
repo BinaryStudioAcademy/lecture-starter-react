@@ -11,7 +11,7 @@ import {
   HttpCode,
   HttpMethod,
 } from '../../common/enums/enums';
-import { generateEmail, waitForURL } from '../../helpers/helpers';
+import { generateEmail, waitForURL, wakeUpApi } from '../../helpers/helpers';
 import { Loader as LoaderComponent } from '../../page-components/page-components';
 import { getTripResponse } from '../../fixtures/fixtures';
 
@@ -25,6 +25,8 @@ const email = generateEmail();
 describe('User', async () => {
   before(async () => {
     const { fullName, password } = authData;
+
+    await wakeUpApi();
     await authActions.openSignUpPage();
     await authActions.signUp({
       fullName,

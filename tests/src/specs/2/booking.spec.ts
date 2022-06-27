@@ -7,7 +7,7 @@ import {
 } from '../../page-actions/page-actions';
 import { BookingCard as BookingCardComponent } from '../../page-components/page-components';
 import { ApiPath, ENV, HttpMethod } from '../../common/enums/enums';
-import { generateEmail } from '../../helpers/helpers';
+import { generateEmail, wakeUpApi } from '../../helpers/helpers';
 
 const bookingCardComponent = new BookingCardComponent();
 const authActions = new AuthActions();
@@ -21,6 +21,7 @@ describe('User', async () => {
   before(async () => {
     const { fullName, password } = authData;
 
+    await wakeUpApi();
     await authActions.openSignUpPage();
     await authActions.signUp({
       fullName,
@@ -51,7 +52,7 @@ describe('User', async () => {
     });
   });
 
-  it('cannot submit form when date is in the past', async () => {
+  it('cannot submit trip form when date is in the past', async () => {
     const { invalidDate: date, guests } = bookingData;
     const mockBookTrip = await browser.mock(
       `${ENV.API_PATH}${ApiPath.BOOKINGS}`,
@@ -64,11 +65,12 @@ describe('User', async () => {
       date,
       guests,
     });
+    await browser.pause(2000);
 
     expect(mockBookTrip.calls.length).toEqual(0);
   });
 
-  it('cannot submit form when number of guests is invalid', async () => {
+  it('cannot submit trip form when number of guests is invalid', async () => {
     const { invalidGuests: guests, date } = bookingData;
     const mockBookTrip = await browser.mock(
       `${ENV.API_PATH}${ApiPath.BOOKINGS}`,
@@ -81,6 +83,7 @@ describe('User', async () => {
       date,
       guests,
     });
+    await browser.pause(2000);
 
     expect(mockBookTrip.calls.length).toEqual(0);
   });
