@@ -1,9 +1,9 @@
-import { Trip as TripPage } from '../../page-objects/page-objects';
+import { Trip as TripPage } from '../../../page-objects/page-objects';
 import {
   Main as MainActions,
   Trip as TripActions,
-} from '../../page-actions/page-actions';
-import { BookTripModal as BookTripModalComponent } from '../../page-components/page-components';
+} from '../../../page-actions/page-actions';
+import { BookTripModal as BookTripModalComponent } from '../../../page-components/page-components';
 
 const tripPage = new TripPage();
 const bookTripModalComponent = new BookTripModalComponent();

@@ -1,9 +1,9 @@
-import { bookingData } from '../../data/data';
+import { bookingData } from '../../../data/data';
 import {
   Main as MainActions,
   Trip as TripActions,
-} from '../../page-actions/page-actions';
-import { BookTripModal as BookTripModalComponent } from '../../page-components/page-components';
+} from '../../../page-actions/page-actions';
+import { BookTripModal as BookTripModalComponent } from '../../../page-components/page-components';
 
 const bookTripModalComponent = new BookTripModalComponent();
 const mainActions = new MainActions();

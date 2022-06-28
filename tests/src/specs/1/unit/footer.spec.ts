@@ -1,8 +1,8 @@
-import { Footer as FooterComponent } from '../../page-components/page-components';
+import { Footer as FooterComponent } from '../../../page-components/page-components';
 import {
   Auth as AuthActions,
   Main as MainActions,
-} from '../../page-actions/page-actions';
+} from '../../../page-actions/page-actions';
 
 const footerComponent = new FooterComponent();
 const authActions = new AuthActions();

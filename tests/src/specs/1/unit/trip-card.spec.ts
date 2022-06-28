@@ -1,7 +1,7 @@
-import { AppRoute } from '../../common/enums/enums';
-import { waitForURL } from '../../helpers/helpers';
-import { Main as MainActions } from '../../page-actions/page-actions';
-import { TripCard as TripCardComponent } from '../../page-components/page-components';
+import { AppRoute } from '../../../common/enums/enums';
+import { waitForURL } from '../../../helpers/helpers';
+import { Main as MainActions } from '../../../page-actions/page-actions';
+import { TripCard as TripCardComponent } from '../../../page-components/page-components';
 
 const tripCardComponent = new TripCardComponent();
 const mainActions = new MainActions();
@@ -31,7 +31,7 @@ describe('Trip Card', async () => {
     await tripCardComponent.Price_Content.waitForExist();
   });
 
-  it('discover a trip button should navigate to trip page', async () => {
+  it('should have discover a trip button', async () => {
     await mainActions.goToTripPage();
     await waitForURL(AppRoute.TRIP_$ID);
   });

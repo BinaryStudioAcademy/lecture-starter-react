@@ -1,10 +1,10 @@
-import { Header as HeaderComponent } from '../../page-components/page-components';
+import { Header as HeaderComponent } from '../../../page-components/page-components';
 import {
   Auth as AuthActions,
   Main as MainActions,
-} from '../../page-actions/page-actions';
-import { waitForURL } from '../../helpers/helpers';
-import { AppRoute } from '../../common/enums/enums';
+} from '../../../page-actions/page-actions';
+import { waitForURL } from '../../../helpers/helpers';
+import { AppRoute } from '../../../common/enums/enums';
 
 const headerComponent = new HeaderComponent();
 const authActions = new AuthActions();
@@ -38,11 +38,5 @@ describe('Header', async () => {
     await mainActions.openPage();
     await mainActions.openProfileNav();
     await headerComponent.ProfileUsername_MenuItem.waitForDisplayed();
-  });
-
-  it('profile navigation should have log out button', async () => {
-    await mainActions.openPage();
-    await mainActions.openProfileNav();
-    await headerComponent.ProfileSignOut_Button.waitForDisplayed();
   });
 });

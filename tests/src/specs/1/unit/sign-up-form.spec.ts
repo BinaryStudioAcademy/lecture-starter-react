@@ -1,5 +1,7 @@
-import { Auth as AuthActions } from '../../page-actions/page-actions';
-import { Auth as AuthPage } from '../../page-objects/page-objects';
+import { AppRoute } from '../../../common/enums/enums';
+import { waitForURL } from '../../../helpers/helpers';
+import { Auth as AuthActions } from '../../../page-actions/page-actions';
+import { Auth as AuthPage } from '../../../page-objects/page-objects';
 
 const authPage = new AuthPage();
 const authActions = new AuthActions();
@@ -27,5 +29,6 @@ describe('Sign Up Form', async () => {
 
   it('should have link to sign in', async () => {
     await authActions.openSignInForm();
+    await waitForURL(AppRoute.SIGN_IN);
   });
 });

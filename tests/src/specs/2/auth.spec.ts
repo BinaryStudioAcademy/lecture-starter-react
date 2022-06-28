@@ -20,6 +20,9 @@ describe('User', async () => {
 
   it('can sign up', async () => {
     const { fullName, password } = authData;
+    const mockSignUp = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_UP}`, {
+      method: HttpMethod.POST,
+    });
 
     await authActions.openSignUpPage();
     await authActions.signUp({
@@ -29,10 +32,15 @@ describe('User', async () => {
     });
     await browser.pause(2000);
     await waitForURL(AppRoute.MAIN);
+
+    expect(mockSignUp.calls.length).toEqual(1);
   });
 
   it('can sign in', async () => {
     const { password } = authData;
+    const mockSignIn = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_IN}`, {
+      method: HttpMethod.POST,
+    });
 
     await authActions.openSignInPage();
     await authActions.signIn({
@@ -41,6 +49,8 @@ describe('User', async () => {
     });
     await browser.pause(2000);
     await waitForURL(AppRoute.MAIN);
+
+    expect(mockSignIn.calls.length).toEqual(1);
   });
 
   it('can sign out', async () => {
@@ -54,12 +64,13 @@ describe('User', async () => {
     await browser.pause(2000);
     await waitForURL(AppRoute.MAIN);
     await mainActions.signOut();
+    await browser.refresh();
     await waitForURL(AppRoute.SIGN_IN);
   });
 
   it('cannot submit sign up form when email is missing', async () => {
     const { fullName, password } = authData;
-    const mockSignIn = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_UP}`, {
+    const mockSignUp = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_UP}`, {
       method: HttpMethod.POST,
     });
 
@@ -71,18 +82,50 @@ describe('User', async () => {
     });
     await browser.pause(2000);
 
-    expect(mockSignIn.calls.length).toEqual(0);
+    expect(mockSignUp.calls.length).toEqual(0);
   });
 
   it('cannot submit sign up form when password is invalid', async () => {
     const { fullName, invalidPassword: password } = authData;
-    const mockSignIn = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_UP}`, {
+    const mockSignUp = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_UP}`, {
       method: HttpMethod.POST,
     });
 
     await authActions.openSignUpPage();
     await authActions.signUp({
       fullName,
+      email,
+      password,
+    });
+    await browser.pause(2000);
+
+    expect(mockSignUp.calls.length).toEqual(0);
+  });
+
+  it('cannot submit sign in form when email is missing', async () => {
+    const { password } = authData;
+    const mockSignIn = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_IN}`, {
+      method: HttpMethod.POST,
+    });
+
+    await authActions.openSignInPage();
+    await authActions.signIn({
+      email: '',
+      password,
+    });
+    await browser.pause(2000);
+
+    expect(mockSignIn.calls.length).toEqual(0);
+  });
+
+  it('cannot submit sign in form when password is invalid', async () => {
+    const { invalidPassword: password } = authData;
+    const mockSignIn = await browser.mock(`${ENV.API_PATH}${ApiPath.SIGN_IN}`, {
+      method: HttpMethod.POST,
+    });
+
+    await authActions.openSignInPage();
+    await authActions.signIn({
       email,
       password,
     });
