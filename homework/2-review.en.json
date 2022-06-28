@@ -1,0 +1,140 @@
+{
+  "markdown": {
+    "tasksMarkdownOrder": ["BAD", "AVERAGE", "GOOD"],
+    "sectionIntro": {
+      "greeting": "Hello!",
+      "codeReview": "A few notes on the code:",
+      "additionalMarkPlural": "Added points for these things:",
+      "additionalMarkSingular": "Added points for",
+      "tasksFeedback": {
+        "BAD": "Tasks that were not implemented:",
+        "AVERAGE": "Tasks that were partially implemented (not 100%):",
+        "GOOD": "Successfully implemented tasks:"
+      }
+    },
+    "feedbackSummary": [
+      {
+        "minMark": 9.5,
+        "title": "Cool job! You managed to learn new material well, and it's commendable!"
+      },
+      {
+        "minMark": 9,
+        "title": "Good job! You managed to learn new material :)"
+      },
+      {
+        "minMark": 8,
+        "title": "Good job! You managed to learn new material :)"
+      },
+      {
+        "minMark": 7,
+        "title": "Good job! There are a few things to note, but overall it's good."
+      },
+      {
+        "minMark": 6,
+        "title": "Checked your work. You didn't manage to implement all the functionality. But in general, for a task of such complexity it's a good result."
+      },
+      {
+        "minMark": 5,
+        "title": "Checked your work. Not everything was implemented. But for a task of this complexity it's good."
+      },
+      {
+        "minMark": 3,
+        "title": "Checked your homework. Unfortunately, you didn't manage to implement most of the functionality. Maybe you just didn't have enough time."
+      },
+      {
+        "minMark": 2,
+        "title": "Checked your homework. Unfortunately, you didn't manage to implement the required functionality. Maybe you just didn't have enough time."
+      },
+      {
+        "minMark": 1,
+        "title": "Checked your homework. Unfortunately, you didn't manage to complete the task."
+      },
+      {
+        "minMark": 0,
+        "title": "Checked your homework. Unfortunately, you didn't manage to complete the task."
+      }
+    ]
+  },
+  "review": {
+    "possibleRelativeMarks": [0, 1, 2, 3, 4, 5],
+    "relativeMarkSettings": {
+      "BAD": {
+        "relativeMarks": [0, 1]
+      },
+      "AVERAGE": {
+        "relativeMarks": [2, 3, 4]
+      },
+      "GOOD": {
+        "relativeMarks": [5]
+      }
+    },
+    "additionalMarkMaxValue": 1,
+    "functionalityReviewMarks": [
+      {
+        "mark": 1,
+        "title": "Sign Up and Sign In functionality"
+      },
+      {
+        "mark": 0.5,
+        "title": "User has an ability to sign out"
+      },
+      {
+        "mark": 0.5,
+        "title": "Unauthorized user cannot access any page other than Sign Up or Sign In"
+      },
+      {
+        "mark": 1.5,
+        "title": "Current User functionality"
+      },
+      {
+        "mark": 1,
+        "title": "Main functionality with search"
+      },
+      {
+        "mark": 1,
+        "title": "When user goes to a trip page, corresponding data is loaded and displayed"
+      },
+      {
+        "mark": 2,
+        "title": "Implemented booking functionality (creation and cancellation)"
+      },
+      {
+        "mark": 0.5,
+        "title": "If asynchronous operations are failed, user sees an error notification"
+      },
+      {
+        "mark": 0.5,
+        "title": "While the data is being loaded, the user sees loader"
+      },
+      {
+        "mark": 0.5,
+        "title": "If 401 error occurs, the user is logged out"
+      }
+    ],
+    "additionalMarks": [
+      {
+        "title": "Deploy"
+      },
+      {
+        "title": "Typescript"
+      },
+      {
+        "title": "Usage of functional approaches and patterns"
+      }
+    ],
+    "codeReviewPoints": [
+      {
+        "title": "Variables that do not change must be declared via const"
+      },
+      {
+        "title": "Do not forget to delete console logs"
+      },
+      {
+        "title": "It's better to remove unnecessary comments from the code"
+      },
+      {
+        "title": "Many if and else if complicate the readability of the code. Sometimes it's better to move logic to another function"
+      }
+    ]
+  }
+}
