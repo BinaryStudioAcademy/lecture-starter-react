@@ -1,3 +1,3 @@
-# React Homework
+# Travel App markup
 
-This repository contains homework for react 1 and react 2
+This repository contains markup for Travel App.
