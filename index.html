@@ -14,23 +14,47 @@
   <body>
     <header class="header">
       <div class="header__inner">
-        <a href="./index.html" class="header__logo">Travel App</a>
-        <nav class="header__nav">
+        <a data-test-id="header-logo" href="./index.html" class="header__logo">
+          Travel App
+        </a>
+        <nav data-test-id="header-nav" class="header__nav">
           <ul class="nav-header__list">
             <li class="nav-header__item" title="Bookings">
-              <a href="./bookings.html" class="nav-header__inner">
+              <a
+                data-test-id="header-bookings-link"
+                href="./bookings.html"
+                class="nav-header__inner"
+              >
                 <span class="visually-hidden">Bookings</span>
                 <img src="./assets/images/briefcase.svg" alt=" icon" />
               </a>
             </li>
             <li class="nav-header__item" title="Profile">
-              <div class="nav-header__inner profile-nav" tabindex="0">
+              <div
+                data-test-id="header-profile-nav"
+                class="nav-header__inner profile-nav"
+                tabindex="0"
+              >
                 <span class="visually-hidden">Profile</span>
                 <img src="./assets/images/user.svg" alt="profile icon" />
-                <ul class="profile-nav__list">
-                  <li class="profile-nav__item profile-nav__username">John Doe</li>
+                <ul
+                  data-test-id="header-profile-nav-list"
+                  class="profile-nav__list"
+                >
+                  <li
+                    data-test-id="header-profile-nav-username"
+                    class="profile-nav__item profile-nav__username"
+                  >
+                    John Doe
+                  </li>
                   <li class="profile-nav__item">
-                    <button class="profile-nav__sign-out button">Sign Out</button>
+                    <a
+                      data-test-id="header-profile-nav-sign-out"
+                      href="./sign-in.html"
+                      class="profile-nav__sign-out button"
+                    >
+                      Sign Out
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -46,11 +70,16 @@
         <form class="trips-filter__form" autocomplete="off">
           <label class="trips-filter__search input">
             <span class="visually-hidden">Search by name</span>
-            <input name="search" type="search" placeholder="search by title" />
+            <input
+              data-test-id="filter-search"
+              name="search"
+              type="search"
+              placeholder="search by title"
+            />
           </label>
           <label class="select">
             <span class="visually-hidden">Search by duration</span>
-            <select name="duration">
+            <select data-test-id="filter-duration" name="duration">
               <option value="">duration</option>
               <option value="0_x_5">&lt; 5 days</option>
               <option value="5_x_10">&lt; 10 days</option>
@@ -59,7 +88,7 @@
           </label>
           <label class="select">
             <span class="visually-hidden">Search by level</span>
-            <select name="level">
+            <select data-test-id="filter-level" name="level">
               <option value="">level</option>
               <option value="easy">easy</option>
               <option value="moderate">moderate</option>
@@ -71,81 +100,206 @@
       <section class="trips">
         <h2 class="visually-hidden">Trips List</h2>
         <ul class="trip-list">
-          <li class="trip-card">
-            <img src="./assets/images/iceland.jpg" alt="trip image" />
+          <li data-test-id="trip-card" class="trip-card">
+            <img
+              data-test-id="trip-card-image"
+              src="./assets/images/iceland.jpg"
+              alt="trip image"
+            />
             <div class="trip-card__content">
               <div class="trip-info">
-                <h3 class="trip-info__title">Iceland</h3>
+                <h3 data-test-id="trip-card-title" class="trip-info__title">
+                  Iceland
+                </h3>
                 <div class="trip-info__content">
-                  <span class="trip-info__duration"><strong>15</strong> days</span>
-                  <span class="trip-info__level">easy</span>
+                  <span
+                    data-test-id="trip-card-duration"
+                    class="trip-info__duration"
+                  >
+                    <strong>15</strong> days
+                  </span>
+                  <span data-test-id="trip-card-level" class="trip-info__level">
+                    easy
+                  </span>
                 </div>
               </div>
               <div class="trip-price">
                 <span>Price</span>
-                <strong class="trip-price__value">7000 $</strong>
+                <strong
+                  data-test-id="trip-card-price-value"
+                  class="trip-price__value"
+                >
+                  7000 $
+                </strong>
               </div>
             </div>
-            <a href="./trip.html" class="button">Discover a trip</a>
+            <a data-test-id="trip-card-link" href="./trip.html" class="button">
+              Discover a trip
+            </a>
           </li>
-          <li class="trip-card">
-            <img src="./assets/images/iceland.jpg" alt="trip image" />
+          <li data-test-id="trip-card" class="trip-card">
+            <img
+              data-test-id="trip-card-image"
+              src="./assets/images/iceland.jpg"
+              alt="trip image"
+            />
             <div class="trip-card__content">
               <div class="trip-info">
-                <h3 class="trip-info__title">Iceland</h3>
+                <h3 data-test-id="trip-card-title" class="trip-info__title">
+                  Iceland
+                </h3>
                 <div class="trip-info__content">
-                  <span class="trip-info__duration"><strong>15</strong> days</span>
-                  <span class="trip-info__level">easy</span>
+                  <span
+                    data-test-id="trip-card-duration"
+                    class="trip-info__duration"
+                  >
+                    <strong>15</strong> days
+                  </span>
+                  <span data-test-id="trip-card-level" class="trip-info__level">
+                    easy
+                  </span>
                 </div>
               </div>
               <div class="trip-price">
                 <span>Price</span>
-                <strong class="trip-price__value">7000 $</strong>
+                <strong
+                  data-test-id="trip-card-price-value"
+                  class="trip-price__value"
+                >
+                  7000 $
+                </strong>
               </div>
             </div>
-            <a href="./trip.html" class="button">Discover a trip</a>
+            <a data-test-id="trip-card-link" href="./trip.html" class="button">
+              Discover a trip
+            </a>
           </li>
-          <li class="trip-card">
-            <img src="./assets/images/iceland.jpg" alt="trip image" />
+          <li data-test-id="trip-card" class="trip-card">
+            <img
+              data-test-id="trip-card-image"
+              src="./assets/images/iceland.jpg"
+              alt="trip image"
+            />
             <div class="trip-card__content">
               <div class="trip-info">
-                <h3 class="trip-info__title">Iceland</h3>
+                <h3 data-test-id="trip-card-title" class="trip-info__title">
+                  Iceland
+                </h3>
                 <div class="trip-info__content">
-                  <span class="trip-info__duration"><strong>15</strong> days</span>
-                  <span class="trip-info__level">easy</span>
+                  <span
+                    data-test-id="trip-card-duration"
+                    class="trip-info__duration"
+                  >
+                    <strong>15</strong> days
+                  </span>
+                  <span data-test-id="trip-card-level" class="trip-info__level">
+                    easy
+                  </span>
                 </div>
               </div>
               <div class="trip-price">
                 <span>Price</span>
-                <strong class="trip-price__value">7000 $</strong>
+                <strong
+                  data-test-id="trip-card-price-value"
+                  class="trip-price__value"
+                >
+                  7000 $
+                </strong>
               </div>
             </div>
-            <a href="./trip.html" class="button">Discover a trip</a>
+            <a data-test-id="trip-card-link" href="./trip.html" class="button">
+              Discover a trip
+            </a>
           </li>
-          <li class="trip-card">
-            <img src="./assets/images/iceland.jpg" alt="trip image" />
+          <li data-test-id="trip-card" class="trip-card">
+            <img
+              data-test-id="trip-card-image"
+              src="./assets/images/iceland.jpg"
+              alt="trip image"
+            />
             <div class="trip-card__content">
               <div class="trip-info">
-                <h3 class="trip-info__title">Iceland</h3>
+                <h3 data-test-id="trip-card-title" class="trip-info__title">
+                  Iceland
+                </h3>
                 <div class="trip-info__content">
-                  <span class="trip-info__duration"><strong>15</strong> days</span>
-                  <span class="trip-info__level">easy</span>
+                  <span
+                    data-test-id="trip-card-duration"
+                    class="trip-info__duration"
+                  >
+                    <strong>15</strong> days
+                  </span>
+                  <span data-test-id="trip-card-level" class="trip-info__level">
+                    easy
+                  </span>
                 </div>
               </div>
               <div class="trip-price">
                 <span>Price</span>
-                <strong class="trip-price__value">7000 $</strong>
+                <strong
+                  data-test-id="trip-card-price-value"
+                  class="trip-price__value"
+                >
+                  7000 $
+                </strong>
               </div>
             </div>
-            <a href="./trip.html" class="button">Discover a trip</a>
+            <a data-test-id="trip-card-link" href="./trip.html" class="button">
+              Discover a trip
+            </a>
+          </li>
+          <li data-test-id="trip-card" class="trip-card">
+            <img
+              data-test-id="trip-card-image"
+              src="./assets/images/iceland.jpg"
+              alt="trip image"
+            />
+            <div class="trip-card__content">
+              <div class="trip-info">
+                <h3 data-test-id="trip-card-title" class="trip-info__title">
+                  Iceland
+                </h3>
+                <div class="trip-info__content">
+                  <span
+                    data-test-id="trip-card-duration"
+                    class="trip-info__duration"
+                  >
+                    <strong>15</strong> days
+                  </span>
+                  <span data-test-id="trip-card-level" class="trip-info__level">
+                    easy
+                  </span>
+                </div>
+              </div>
+              <div class="trip-price">
+                <span>Price</span>
+                <strong
+                  data-test-id="trip-card-price-value"
+                  class="trip-price__value"
+                >
+                  7000 $
+                </strong>
+              </div>
+            </div>
+            <a data-test-id="trip-card-link" href="./trip.html" class="button">
+              Discover a trip
+            </a>
           </li>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <span class="footer__text">
-        from <a class="footer__link" href="https://binary-studio.com">binary studio</a> with
-        <img class="footer__icon" src="./assets/images/heart.svg" alt="heart icon" />
+        from
+        <a class="footer__link" href="https://binary-studio.com">
+          binary studio
+        </a>
+        with
+        <img
+          class="footer__icon"
+          src="./assets/images/heart.svg"
+          alt="heart icon"
+        />
       </span>
     </footer>
   </body>

@@ -20,7 +20,7 @@
     - trips-filter
     - trips
   - trip-page
-    - trip-popup
+    - book-trip-popup
   - bookings-page
 - animations
 
@@ -529,9 +529,9 @@ select {
   max-width: 200px;
 }
 
-/* trip-popup */
+/* book-trip-popup */
 
-.trip-popup {
+.book-trip-popup {
   position: relative;
   flex: 1;
   max-width: 380px;
@@ -540,7 +540,7 @@ select {
   box-shadow: var(--shadow);
 }
 
-.trip-popup__close {
+.book-trip-popup__close {
   position: absolute;
   top: 15px;
   right: 25px;
@@ -555,13 +555,13 @@ select {
   opacity: 0.7;
 }
 
-.trip-popup__form {
+.book-trip-popup__form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.trip-popup__total {
+.book-trip-popup__total {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -571,7 +571,7 @@ select {
   border-top: 1px solid var(--color-gray);
 }
 
-.trip-popup__total-value {
+.book-trip-popup__total-value {
   font-weight: 600;
   font-size: var(--font-size-400);
 }

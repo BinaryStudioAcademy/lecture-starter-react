@@ -14,23 +14,46 @@
   <body>
     <header class="header">
       <div class="header__inner">
-        <a href="./index.html" class="header__logo">Travel App</a>
-        <nav class="header__nav">
+        <a data-test-id="header-logo" href="./index.html" class="header__logo">
+          Travel App
+        </a>
+        <nav data-test-id="header-nav" class="header__nav">
           <ul class="nav-header__list">
             <li class="nav-header__item" title="Bookings">
-              <a href="./bookings.html" class="nav-header__inner">
+              <a
+                data-test-id="header-bookings-link"
+                href="./bookings.html"
+                class="nav-header__inner"
+              >
                 <span class="visually-hidden">Bookings</span>
                 <img src="./assets/images/briefcase.svg" alt=" icon" />
               </a>
             </li>
             <li class="nav-header__item" title="Profile">
-              <div class="nav-header__inner profile-nav" tabindex="0">
+              <div
+                data-test-id="header-profile-nav"
+                class="nav-header__inner profile-nav"
+                tabindex="0"
+              >
                 <span class="visually-hidden">Profile</span>
                 <img src="./assets/images/user.svg" alt="profile icon" />
-                <ul class="profile-nav__list">
-                  <li class="profile-nav__item profile-nav__username">John Doe</li>
+                <ul
+                  data-test-id="header-profile-nav-list"
+                  class="profile-nav__list"
+                >
+                  <li
+                    data-test-id="header-profile-nav-username"
+                    class="profile-nav__item profile-nav__username"
+                  >
+                    John Doe
+                  </li>
                   <li class="profile-nav__item">
-                    <button class="profile-nav__sign-out button">Sign Out</button>
+                    <button
+                      data-test-id="header-profile-nav-sign-out"
+                      class="profile-nav__sign-out button"
+                    >
+                      Sign Out
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -42,32 +65,62 @@
     <main class="bookings-page">
       <h1 class="visually-hidden">Travel App</h1>
       <ul class="bookings__list">
-        <li class="booking">
-          <h3 class="booking__title">Iceland</h3>
-          <span class="booking__guests">2 guests</span>
-          <span class="booking__date">13.07.2022</span>
-          <span class="booking__total">14000 $</span>
-          <button class="booking__cancel" title="Cancel booking">
+        <li data-test-id="booking" class="booking">
+          <h3 data-test-id="booking-title" class="booking__title">Iceland</h3>
+          <span data-test-id="booking-guests" class="booking__guests">
+            2 guests
+          </span>
+          <span data-test-id="booking-date" class="booking__date">
+            13.07.2024
+          </span>
+          <span data-test-id="booking-total" class="booking__total">
+            14000 $
+          </span>
+          <button
+            data-test-id="booking-cancel"
+            class="booking__cancel"
+            title="Cancel booking"
+          >
             <span class="visually-hidden">Cancel booking</span>
             ×
           </button>
         </li>
-        <li class="booking">
-          <h3 class="booking__title">Iceland</h3>
-          <span class="booking__guests">2 guests</span>
-          <span class="booking__date">30.09.2022</span>
-          <span class="booking__total">14000 $</span>
-          <button class="booking__cancel" title="Cancel booking">
+        <li data-test-id="booking" class="booking">
+          <h3 data-test-id="booking-title" class="booking__title">Iceland</h3>
+          <span data-test-id="booking-guests" class="booking__guests">
+            2 guests
+          </span>
+          <span data-test-id="booking-date" class="booking__date">
+            30.09.2024
+          </span>
+          <span data-test-id="booking-total" class="booking__total">
+            14000 $
+          </span>
+          <button
+            data-test-id="booking-cancel"
+            class="booking__cancel"
+            title="Cancel booking"
+          >
             <span class="visually-hidden">Cancel booking</span>
             ×
           </button>
         </li>
-        <li class="booking">
-          <h3 class="booking__title">Iceland</h3>
-          <span class="booking__guests">2 guests</span>
-          <span class="booking__date">10.11.2022</span>
-          <span class="booking__total">14000 $</span>
-          <button class="booking__cancel" title="Cancel booking">
+        <li data-test-id="booking" class="booking">
+          <h3 data-test-id="booking-title" class="booking__title">Iceland</h3>
+          <span data-test-id="booking-guests" class="booking__guests">
+            2 guests
+          </span>
+          <span data-test-id="booking-date" class="booking__date">
+            10.11.2024
+          </span>
+          <span data-test-id="booking-total" class="booking__total">
+            14000 $
+          </span>
+          <button
+            data-test-id="booking-cancel"
+            class="booking__cancel"
+            title="Cancel booking"
+          >
             <span class="visually-hidden">Cancel booking</span>
             ×
           </button>
@@ -76,8 +129,16 @@
     </main>
     <footer class="footer">
       <span class="footer__text">
-        from <a class="footer__link" href="https://binary-studio.com">binary studio</a> with
-        <img class="footer__icon" src="./assets/images/heart.svg" alt="heart icon" />
+        from
+        <a class="footer__link" href="https://binary-studio.com">
+          binary studio
+        </a>
+        with
+        <img
+          class="footer__icon"
+          src="./assets/images/heart.svg"
+          alt="heart icon"
+        />
       </span>
     </footer>
   </body>
