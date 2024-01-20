@@ -31,8 +31,8 @@
 :root {
   --color-white: #ffffff;
   --color-blue-100: #eef8fb;
-  --color-blue-200: #96daf0;
-  --color-blue-300: #7cbcde;
+  --color-blue-200: #79c6ec;
+  --color-blue-300: #52b1e0;
   --color-blue-400: #242a3a;
   --color-gray: #e1e1e1;
   --overlay-color: rgb(0 0 0 / 30%);
@@ -489,6 +489,7 @@ select {
   flex-direction: column;
   gap: 15px;
   padding: 20px 30px;
+  flex: 1;
 }
 
 /* trip-page */
