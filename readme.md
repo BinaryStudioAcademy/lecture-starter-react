@@ -1,5 +1,5 @@
 # Travel App Markup
 
-## Generail Info
+## General Info
 
 This repository contains markup for Travel App.
