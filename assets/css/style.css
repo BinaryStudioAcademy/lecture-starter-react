@@ -186,7 +186,7 @@ select {
   border: none;
   border-radius: 1px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.25s ease;
 }
 
 .button:hover {
@@ -377,7 +377,7 @@ select {
 .footer__link {
   color: var(--color-blue-200);
   text-decoration: none;
-  transition: 0.1s color ease;
+  transition: 0.15s color ease;
 }
 
 .footer__link:hover {
@@ -415,7 +415,7 @@ select {
 .sign-up-form__link,
 .sign-in-form__link {
   color: var(--color-blue-200);
-  transition: 0.1s color ease;
+  transition: 0.15s color ease;
 }
 
 .sign-up-form__link:hover,
